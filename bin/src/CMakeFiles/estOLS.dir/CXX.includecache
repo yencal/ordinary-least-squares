@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../inc/read_input_files.h
+stdio.h
+-
+iostream
+-
+fstream
+-
+sstream
+-
+limits
+-
+gsl/gsl_vector.h
+-
+gsl/gsl_matrix.h
+-
+
+/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/main.cpp
+stdio.h
+-
+read_input_files.h
+/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/read_input_files.h
+
+/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/read_input_files.cpp
+read_input_files.h
+/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/read_input_files.h
+
