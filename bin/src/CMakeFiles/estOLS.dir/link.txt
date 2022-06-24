@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/estOLS.dir/read_input_files.cpp.o CMakeFiles/estOLS.dir/main.cpp.o  -o estOLS  /usr/lib/x86_64-linux-gnu/libgsl.so /usr/lib/x86_64-linux-gnu/libgslcblas.so 
