@@ -123,6 +123,7 @@ void read_XMAT(int n, int m, std::string XMAT_file, int numHeaderLines, gsl_matr
         throw std::runtime_error("XMAT number of elements read is not equal to number of elements expected");
     }
 
+     myFile.close();
 }
 
 void read_yVEC(int n, std::string yVEC_file, int numHeaderLines, gsl_vector *yVEC)
@@ -179,4 +180,5 @@ void read_yVEC(int n, std::string yVEC_file, int numHeaderLines, gsl_vector *yVE
         throw std::runtime_error("yVEC number of elements read is not equal to number of elements expected");
     }
 
+     myFile.close();
 }
