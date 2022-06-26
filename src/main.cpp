@@ -46,7 +46,10 @@ int main(int argc, char **argv)
     }
 
     estimate_OLS(n, m, XMAT, yVEC, OLSest, method);
-    write_data_to_screen<real_t> (OLSest, m);
+    //write_data_to_screen<real_t> (OLSest, m);
+
+    std::ofstream file("output.txt");
+    write_data_as_csv(file, m, 1, OLSest);
 
     // free allocated memory
     delete [] XMAT;
