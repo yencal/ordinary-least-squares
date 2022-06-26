@@ -9,7 +9,7 @@
 
 #include "utilities.h"
 
-void get_XMAT_dim(int*, int*, std::string, int);
+void read_csv_file_data_dim(int *numRows, int *numCols, std::string fileName, int numHeaderLines);
 
 template <typename T>
 int read_csv_file(std::string fileName, int numHeaderLines, T *ptr);

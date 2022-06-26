@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     int m;
 
     // get dimension of XMAT
-    get_XMAT_dim(&n, &m, XMAT_file, numHeaderLines_XMAT_file);
+    read_csv_file_data_dim(&n, &m, XMAT_file, numHeaderLines_XMAT_file);
 
     // allocate memory for XMAT, yVEC, OLSest
     real_t * XMAT = new real_t [n*m];

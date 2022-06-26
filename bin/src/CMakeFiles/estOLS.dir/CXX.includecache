@@ -44,3 +44,9 @@ write_output.h
 estimate_OLS.h
 -
 
+/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/read_input_files.cpp
+read_input_files.h
+/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/read_input_files.h
+utilities.h
+/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/utilities.h
+

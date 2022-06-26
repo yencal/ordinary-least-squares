@@ -1,14 +1,14 @@
 #include "read_input_files.h"
 #include "utilities.h"
 
-void get_XMAT_dim(int *n, int *m, std::string XMAT_file, int numHeaderLines)
+void read_csv_file_data_dim(int *numRows, int *numCols, std::string fileName, int numHeaderLines)
 {
     // initialize to zero
-    (*n) = 0;
-    (*m) = 0;
+    (*numRows) = 0;
+    (*numCols) = 0;
 
     // create an input filestream and open XMAT_file
-    std::ifstream myFile(XMAT_file);
+    std::ifstream myFile(fileName);
 
     // string for reading lines in file
     std::string line;
@@ -19,7 +19,6 @@ void get_XMAT_dim(int *n, int *m, std::string XMAT_file, int numHeaderLines)
         throw std::runtime_error("Could not open XMAT.csv. Please specify file full path.");
     }
 
-
     // skip header lines
     int count = 0;
     while (count < numHeaderLines)
@@ -28,16 +27,9 @@ void get_XMAT_dim(int *n, int *m, std::string XMAT_file, int numHeaderLines)
         ++count;
     }
 
-    // read first line and get number of columns (dim m)
-    while (std::getline(myFile, line))
-    {
-        if (line.empty()) {
-            continue;
-        } else {
-            ++(*n);
-            break;
-        }
-    }
+    // read first line to get number of columns
+    std::getline(myFile, line);
+    ++(*numRows); // increament number of rows after line read
 
     // create a stringstream from line
     std::stringstream ss(line);
@@ -45,21 +37,15 @@ void get_XMAT_dim(int *n, int *m, std::string XMAT_file, int numHeaderLines)
     // count number of columns
     while (std::getline(ss, line, ','))
     {
-        ++(*m);
+        ++(*numCols);
     }
 
-    // count the number of lines in file
-    while (std::getline(myFile, line))
+    // continue counting the number of lines in file
+    while (std::getline(myFile, line) && !line.empty())
     {
-        // skip empty lines (if any exits)
-        if (line.empty())
-        {
-           continue;
-        }
-        ++(*n);
+        // increament number of rows
+        ++(*numRows);
     }
-        
-    //printf("XMAT dimension: %d x %d\n", (*n), (*m));
 
     myFile.close();
 }
