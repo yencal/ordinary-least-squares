@@ -5,9 +5,6 @@
 #include <write_output.h>
 #include <estimate_OLS.h>
 
-#include <cblas.h>
-#include <lapacke.h>
-
 int main(int argc, char **argv)
 {
 

@@ -10,20 +10,6 @@
 utilities.h
 -
 
-../inc/read_input_files.h
-stdio.h
--
-iostream
--
-fstream
--
-sstream
--
-limits
--
-utilities.h
-../inc/utilities.h
-
 ../inc/utilities.h
 
 ../inc/write_output.h
@@ -39,17 +25,7 @@ iostream
 -
 string
 -
-
-/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/main.cpp
-stdio.h
--
-utilities.h
--
-read_input_files.h
--
 write_output.h
--
-estimate_OLS.h
 -
 cblas.h
 -
