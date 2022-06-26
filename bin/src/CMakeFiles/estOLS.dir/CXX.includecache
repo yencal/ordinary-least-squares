@@ -10,6 +10,20 @@
 utilities.h
 -
 
+../inc/read_input_files.h
+stdio.h
+-
+iostream
+-
+fstream
+-
+sstream
+-
+limits
+-
+utilities.h
+../inc/utilities.h
+
 ../inc/utilities.h
 
 ../inc/write_output.h
@@ -18,17 +32,15 @@ utilities.h
 iostream
 -
 
-/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/estimate_OLS.cpp
-estimate_OLS.h
+/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/main.cpp
+stdio.h
 -
-iostream
+utilities.h
 -
-string
+read_input_files.h
 -
 write_output.h
 -
-cblas.h
--
-lapacke.h
+estimate_OLS.h
 -
 

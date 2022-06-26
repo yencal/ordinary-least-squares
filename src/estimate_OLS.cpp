@@ -13,7 +13,7 @@ void estimate_OLS(int n, int m, real_t *XMAT, real_t *yVEC, real_t *OLSest, int 
     if method == 0: estOLS_normal_equation(...)
     if method == 1: estOLS_Ax_b_LU_factorization(...)
 */
-    method = 0;
+
     switch (method) {
         case 0:
             // estimate OLS by directly computing the normal equation
