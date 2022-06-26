@@ -3,6 +3,7 @@
 #include <utilities.h>
 #include <read_input_files.h>
 #include <write_output.h>
+#include <estimate_OLS.h>
 
 #include <cblas.h>
 #include <lapacke.h>
@@ -31,7 +32,9 @@ int main(int argc, char **argv)
     read_XMAT(n, m, XMAT_file, numHeaderLines_XMAT_file, XMAT);
     read_yVEC(n, yVEC_file, numHeaderLines_yVEC_file, yVEC);
 
-    write_data_to_screen<real_t> (yVEC, 4);
+    //write_data_to_screen<real_t> (yVEC, 4);
+
+    estimate_OLS(n, m, XMAT, yVEC, OLSest, 1);
 
     // free allocated memory
     delete [] XMAT;

@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../inc/estimate_OLS.h
+utilities.h
+-
+
 ../inc/read_input_files.h
 stdio.h
 -
@@ -28,6 +32,14 @@ utilities.h
 iostream
 -
 
+/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/estimate_OLS.cpp
+estimate_OLS.h
+-
+iostream
+-
+string
+-
+
 /mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/main.cpp
 stdio.h
 -
@@ -37,14 +49,10 @@ read_input_files.h
 -
 write_output.h
 -
+estimate_OLS.h
+-
 cblas.h
 -
 lapacke.h
--
-
-/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/src/write_output.cpp
-write_output.h
--
-stdio.h
 -
 

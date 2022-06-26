@@ -3,6 +3,7 @@ set(Executable_Name estOLS)
 set(Sources
     read_input_files.cpp
     write_output.cpp
+    estimate_OLS.cpp
     main.cpp
 )
 

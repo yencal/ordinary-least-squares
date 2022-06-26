@@ -125,6 +125,33 @@ estOLS/fast:
 	cd /mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/bin && $(MAKE) -f src/CMakeFiles/estOLS.dir/build.make src/CMakeFiles/estOLS.dir/build
 .PHONY : estOLS/fast
 
+estimate_OLS.o: estimate_OLS.cpp.o
+
+.PHONY : estimate_OLS.o
+
+# target to build an object file
+estimate_OLS.cpp.o:
+	cd /mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/bin && $(MAKE) -f src/CMakeFiles/estOLS.dir/build.make src/CMakeFiles/estOLS.dir/estimate_OLS.cpp.o
+.PHONY : estimate_OLS.cpp.o
+
+estimate_OLS.i: estimate_OLS.cpp.i
+
+.PHONY : estimate_OLS.i
+
+# target to preprocess a source file
+estimate_OLS.cpp.i:
+	cd /mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/bin && $(MAKE) -f src/CMakeFiles/estOLS.dir/build.make src/CMakeFiles/estOLS.dir/estimate_OLS.cpp.i
+.PHONY : estimate_OLS.cpp.i
+
+estimate_OLS.s: estimate_OLS.cpp.s
+
+.PHONY : estimate_OLS.s
+
+# target to generate assembly for a file
+estimate_OLS.cpp.s:
+	cd /mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/bin && $(MAKE) -f src/CMakeFiles/estOLS.dir/build.make src/CMakeFiles/estOLS.dir/estimate_OLS.cpp.s
+.PHONY : estimate_OLS.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -215,6 +242,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... estOLS"
+	@echo "... estimate_OLS.o"
+	@echo "... estimate_OLS.i"
+	@echo "... estimate_OLS.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
