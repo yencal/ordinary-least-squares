@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/estOLS.dir/read_input_files.cpp.o CMakeFiles/estOLS.dir/write_output.cpp.o CMakeFiles/estOLS.dir/main.cpp.o  -o estOLS  -llapacke /usr/lib/x86_64-linux-gnu/liblapack.so /usr/lib/x86_64-linux-gnu/libblas.so 

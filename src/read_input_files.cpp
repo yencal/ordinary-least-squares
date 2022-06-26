@@ -1,4 +1,5 @@
 #include "read_input_files.h"
+#include "utilities.h"
 
 void get_XMAT_dim(int *n, int *m, std::string XMAT_file, int numHeaderLines)
 {
@@ -63,7 +64,7 @@ void get_XMAT_dim(int *n, int *m, std::string XMAT_file, int numHeaderLines)
     myFile.close();
 }
 
-void read_XMAT(int n, int m, std::string XMAT_file, int numHeaderLines, gsl_matrix *XMAT)
+void read_XMAT(int n, int m, std::string XMAT_file, int numHeaderLines, real_t *XMAT_ptr)
 {
     // create an input filestream and open XMAT_file
     std::ifstream myFile(XMAT_file);
@@ -85,12 +86,10 @@ void read_XMAT(int n, int m, std::string XMAT_file, int numHeaderLines, gsl_matr
         ++count;
     }
 
-    // pointer to the memory where the elements of the XMAT are stored
-    double *ptr = XMAT->data;
-
     // write elements to XMAT using the pointer to its memory location
-    double value;
+    real_t value;
     int numElements = 0;
+    int i = 0;
     while (std::getline(myFile, line))
     {
         // skip empty lines (if any exits)
@@ -101,12 +100,12 @@ void read_XMAT(int n, int m, std::string XMAT_file, int numHeaderLines, gsl_matr
 
         // create a stringstream of the current line
         std::stringstream ss(line);
-
+        
         // read columns in line
         while(ss >> value)
         {
-            *ptr = value;
-            ptr++;
+            XMAT_ptr[i] = value;
+            i++;
             numElements++;
 
             // if the next token is a comma, ignore it and move on
@@ -126,7 +125,7 @@ void read_XMAT(int n, int m, std::string XMAT_file, int numHeaderLines, gsl_matr
      myFile.close();
 }
 
-void read_yVEC(int n, std::string yVEC_file, int numHeaderLines, gsl_vector *yVEC)
+void read_yVEC(int n, std::string yVEC_file, int numHeaderLines, real_t *yVEC_ptr)
 {
     // create an input filestream and open XMAT_file
     std::ifstream myFile(yVEC_file);
@@ -148,12 +147,10 @@ void read_yVEC(int n, std::string yVEC_file, int numHeaderLines, gsl_vector *yVE
         ++count;
     }
 
-    // pointer to the memory where the elements of the yVEC are stored
-    double *ptr = yVEC->data;
-
     // write elements to yVEC using the pointer to its memory location
-    double value;
+    real_t value;
     int numElements = 0;
+    int i = 0;
     while (std::getline(myFile, line))
     {
         // skip empty lines (if any exits)
@@ -168,8 +165,8 @@ void read_yVEC(int n, std::string yVEC_file, int numHeaderLines, gsl_vector *yVE
         // read columns in line
         while(ss >> value)
         {
-            *ptr = value;
-            ptr++;
+            yVEC_ptr[i] = value;
+            i++;
             numElements++;
         }
     }

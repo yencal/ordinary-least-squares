@@ -1,8 +1,11 @@
 #include <stdio.h>
 
-#include "read_input_files.h"
+#include <utilities.h>
+#include <read_input_files.h>
+#include <write_output.h>
 
-
+#include <cblas.h>
+#include <lapacke.h>
 
 int main(int argc, char **argv)
 {
@@ -17,14 +20,23 @@ int main(int argc, char **argv)
     int numHeaderLines_yVEC_file = 1;
     get_XMAT_dim(&n, &m, XMAT_file, numHeaderLines_XMAT_file);
 
-    gsl_matrix * XMAT = gsl_matrix_alloc (n, m);
-    gsl_vector * yVEC = gsl_vector_alloc (n);
+    // allocate memory
+    real_t * XMAT = new real_t [n*m];
+    real_t * yVEC = new real_t[n];
 
+    // allocate memory for OLSest (result)
+    real_t *OLSest = new real_t[m];
+
+    // read XMAT and yVEC from file
     read_XMAT(n, m, XMAT_file, numHeaderLines_XMAT_file, XMAT);
     read_yVEC(n, yVEC_file, numHeaderLines_yVEC_file, yVEC);
 
-    gsl_matrix_free (XMAT);
-    gsl_vector_free (yVEC);
+    write_data_to_screen<real_t> (yVEC, 4);
+
+    // free allocated memory
+    delete [] XMAT;
+    delete [] yVEC;
+    delete [] OLSest;
     
     return 0;
 }

@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares'
+make: Leaving directory '/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
