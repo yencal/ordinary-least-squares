@@ -13,6 +13,7 @@ void estimate_OLS(int n, int m, real_t *XMAT, real_t *yVEC, real_t *OLSest, int 
     if method == 0: estOLS_normal_equation(...)
     if method == 1: estOLS_Ax_b_LU_factorization(...)
 */
+    method = 0;
     switch (method) {
         case 0:
             // estimate OLS by directly computing the normal equation
@@ -34,67 +35,55 @@ void estimate_OLS(int n, int m, real_t *XMAT, real_t *yVEC, real_t *OLSest, int 
 
 void estOLS_normal_equation(int n, int m, real_t *XMAT, real_t *yVEC, real_t *OLSest)
 {
-// /*
-//     This function computes OLS estimates by directly evaluating the normal equation
-//     OLSest = ((X^T)*X)^(-1) * (X^T) * y
+/*
+    This function computes OLS estimates by directly evaluating the normal equation
+    OLSest = ((X^T)*X)^(-1) * (X^T) * y
 
-//     parameter naming:
-//     A = (X^T)*X
-//     note that the matrix inverse will be inplace
-// */
+    parameter naming:
+    A = (X^T)*X
+    note that the matrix inverse will be inplace
+*/
 
-//     // allocate memory for A
-//     real_t *A = new real_t[m*m];
+    // allocate memory for A
+    real_t *A = new real_t[m*m];
 
-//     // allocate memory to store A^(-1) * X^T
-//     real_t *C = new real_t[m*m];
+    // allocate memory to store A^(-1) * X^T
+    real_t *C = new real_t[m*n];
 
-//     // create matrix view of XMAT, A, and C
-//     gsl_matrix_view XMAT_view = gsl_matrix_view_array(XMAT, n, m);
-//     gsl_matrix_view A_view = gsl_matrix_view_array(A, m, m);
-//     gsl_matrix_view C_view = gsl_matrix_view_array(C, m, m);
+    // calculate A (A = XMAT_transpose * XMAT)
+    cblas_dgemm(CblasRowMajor, CblasTrans, CblasNoTrans, m, m, n, 1.0, XMAT, m, XMAT, m, 0.0, A, m);
 
-//     // create vector view of yVEC and OLSest
-//     gsl_vector_view yVEC_view = gsl_vector_view_array(yVEC, n);
-//     gsl_vector_view OLSest_view = gsl_vector_view_array(OLSest, m);
+    // LAPACKE parameters
+    lapack_int info = 0;
+    lapack_int lda = m;
+    lapack_int *ipiv = new lapack_int[m*m];
 
-//     // calculate A (A = XMAT_transpose * XMAT)
-//     gsl_blas_dgemm (CblasTrans, CblasNoTrans, 1.0, &XMAT_view.matrix, &XMAT_view.matrix, 0.0, &A_view.matrix);
+    // compute LU factorization needed for computing A^(-1). Note that result is stored in A
+    info = LAPACKE_dgetrf(LAPACK_ROW_MAJOR, m, m, A, lda, ipiv);
+    if (info != 0)
+    {
+        throw std::runtime_error("LAPACKE_dgetrf failed.");
+    }
 
-//     // LAPACKE parameters
-//     lapack_int info = 0;
-//     lapack_int lda = m;
-//     lapack_int *ipiv = new lapack_int[m*m];
+    // compute A^(-1). Note that result is stored in A
+    info = LAPACKE_dgetri(LAPACK_ROW_MAJOR, m, A, lda, ipiv);
+    if (info != 0)
+    {
+        throw std::runtime_error("LAPACKE_dgetri failed.");
+    }
 
-//     // compute LU factorization needed for computing A^(-1). Note that result is stored in A
-//     info = LAPACKE_dgetrf(LAPACK_ROW_MAJOR, m, m, A, lda, ipiv);
-//     if (info == 1)
-//     {
-//         throw std::runtime_error("LAPACKE_dgetrf failed.");
-//     }
+    // compute A^(-1) * X^T. Result is stored in C
+    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasTrans, m, n, m, 1.0, A, m, XMAT, m, 0.0, C, n);
 
-//     // compute A^(-1). Note that result is stored in A
-//     info = LAPACKE_dgetri(LAPACK_ROW_MAJOR, m, A, lda, ipiv);
-//     if (info == 1)
-//     {
-//         throw std::runtime_error("LAPACKE_dgetri failed.");
-//     }
+    // compute C * yVEC. Result is stored in OLSest
+    cblas_dgemv(CblasRowMajor, CblasNoTrans, m, n, 1.0, C, n, yVEC, 1, 0.0, OLSest, 1);
 
-//     // compute A^(-1) * X^T. Result is stored in C
-//     printf("A_View: %ld x %ld\n", A_view.matrix.size1, A_view.matrix.size2);
-//     printf("XMAT_View: %ld x %ld\n", XMAT_view.matrix.size1, XMAT_view.matrix.size2);
-//     printf("C_View: %ld x %ld\n", C_view.matrix.size1, C_view.matrix.size2);
-//     gsl_blas_dgemm (CblasNoTrans, CblasTrans, 1.0, &A_view.matrix, &XMAT_view.matrix, 0.0, &C_view.matrix);
-// #if 0
-//     // compute C * yVEC. Result is stored in OLSest
-//     gsl_blas_dgemv (CblasNoTrans, 1.0,  &C_view.matrix, &yVEC_view.vector, 0.0, &OLSest_view.vector);
-
-//     // free allocated memory
-//     delete [] A;
-//     delete [] C;
-//     delete [] ipiv;
-// #endif
+    // free allocated memory
+    delete [] A;
+    delete [] C;
+    delete [] ipiv;
 }
+
 
 void estOLS_Ax_b_LU_factorization(int n, int m, real_t *XMAT, real_t *yVEC, real_t *OLSest)
 {

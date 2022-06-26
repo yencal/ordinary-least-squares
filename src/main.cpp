@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
     //write_data_to_screen<real_t> (yVEC, 4);
 
-    estimate_OLS(n, m, XMAT, yVEC, OLSest, 1);
+    estimate_OLS(n, m, XMAT, yVEC, OLSest, 10);
 
     // free allocated memory
     delete [] XMAT;
