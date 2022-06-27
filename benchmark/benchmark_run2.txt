@@ -1,0 +1,21 @@
+The program is running with the following commands:
+  Xmat: 
+  yVec: 
+  XmatSkip: 0
+  yVecSkip: 0
+  method: 0
+  writeFile: false
+  benchmark: ../benchmark/benchmark.csv
+
+Running benchmark study for different dimensions(nxm) of XMAT. All times in seconds.
+n: XMAT dim n
+m: XMAT dim m
+NE: Normal Equation
+AxbLU : Solve Ax=b using LU factorization
+
+n,m,NE,AxbLU
+40000,500,8.9110E-01,2.7549E-01
+40000,1000,2.7055E+00,7.7408E-01
+40000,2000,9.8894E+00,7.6103E+00
+40000,4000,4.9909E+01,2.5612E+01
+40000,10000,5.3321E+02,1.7075E+02

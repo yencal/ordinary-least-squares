@@ -9,12 +9,12 @@ void benchmark(Command cmd)
 {
     // print info
     std::cout 
-        << "\n\nRunning benchmark study for different dimensions(nxm) of XMAT. All times in seconds.\n"
+        << "\nRunning benchmark study for different dimensions(nxm) of XMAT. All times in seconds.\n"
         << "n: XMAT dim n\n"
         << "m: XMAT dim m\n"
         << "NE: Normal Equation\n"
         << "AxbLU : Solve Ax=b using LU factorization\n"
-        << "n,m,NE,AxbLU\n";
+        << "\nn,m,NE,AxbLU\n";
 
     int numRows;
     int numCols;
