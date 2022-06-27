@@ -1,5 +1,0 @@
-/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/bin/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/bin/CMakeFiles/edit_cache.dir
-/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/bin/src/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/bin/src/CMakeFiles/edit_cache.dir
-/mnt/c/Users/cyenu/Documents/Coding_Interview_Prep/ordinary-least-squares/bin/src/CMakeFiles/estOLS.dir
