@@ -44,6 +44,7 @@ void setup_compute(Command cmd)
     if (cmd.writeFile) {
         std::ofstream file("OLSest.csv");
         write_data_as_csv(file, m, 1, OLSest);
+        printf("Results written to OLSest.csv\n");
     }
     else
     {
