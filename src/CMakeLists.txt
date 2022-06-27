@@ -1,6 +1,9 @@
 set(Executable_Name estOLS)
 
 set(Sources
+    setup_compute.cpp
+    process_cmd_args.cpp
+    command.cpp
     read_input_files.cpp
     write_output.cpp
     estimate_OLS.cpp
