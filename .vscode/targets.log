@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jun 26 06:22:20 2022
+# Make data base, printed on Mon Jun 27 04:54:57 2022
 
 # Variables
 
@@ -55,7 +55,7 @@ PATH = /home/caleby/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-cf3259d3-4db0-42a9-a278-01581c1af3de.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-4eefad0a-4b06-4ab3-b015-326f089c6c6c.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -79,7 +79,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = caleby
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -157,9 +157,9 @@ MOTD_SHOWN = update-motd
 
 # Directories
 
-# . (device 46, inode 25051272927953139): 10 files, no impossibilities.
+# . (device 46, inode 25051272927953139): 11 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -209,12 +209,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 18 / storage = 145 B / avg = 8 B
-# current buf: size = 8162 B / used = 145 B / count = 18 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 19 / storage = 155 B / avg = 8 B
+# current buf: size = 8162 B / used = 155 B / count = 19 / avg = 8 B
 
-# strcache performance: lookups = 21 / hit rate = 14%
+# strcache performance: lookups = 22 / hit rate = 13%
 # hash-table stats:
-# Load=18/8192=0%, Rehash=0, Collisions=1/21=5%
-# Finished Make data base on Sun Jun 26 06:22:20 2022
+# Load=19/8192=0%, Rehash=0, Collisions=1/22=5%
+# Finished Make data base on Mon Jun 27 04:54:57 2022
 
  

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <string>
 
 // command line options
@@ -11,5 +12,18 @@ struct Command
     int numHeaderLines_yVEC_file = 0;
     int method = 0;
     bool writeFile = false;
-    bool benchmark = false;
+    std::string benchmarkFile;
+
+    void print()
+    {
+        std::cout 
+            << "The program is running with the following commands:\n"
+            << "  Xmat: " << XMAT_file << "\n"
+            << "  yVec: " << yVEC_file << "\n"
+            << "  XmatSkip: " << numHeaderLines_XMAT_file << "\n"
+            << "  yVecSkip: " << numHeaderLines_yVEC_file << "\n" 
+            << "  method: " << method << "\n"
+            << "  writeFile: " << (writeFile ? "true" : "false") << "\n"
+            << "  benchmark: " << benchmarkFile << "\n";
+    }
 };

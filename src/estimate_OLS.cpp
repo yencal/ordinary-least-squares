@@ -17,13 +17,13 @@ void estimate_OLS(int n, int m, real_t *XMAT, real_t *yVEC, real_t *OLSest, int 
     switch (method) {
         case 0:
             // estimate OLS by directly computing the normal equation
-            std::cout << "Computing OLS estimates using direct evaluation of the normal equation...\n";
+            //std::cout << "Computing OLS estimates using direct evaluation of the normal equation...\n";
             estOLS_normal_equation(n, m, XMAT, yVEC, OLSest);
             break;
 
         case 1:
             // estimate OLS using Ax=b and LU factorization
-            std::cout << "Computing OLS estimates using LU factorization to solve Ax=b...\n";
+            //std::cout << "Computing OLS estimates using LU factorization to solve Ax=b...\n";
             estOLS_Ax_b_LU_factorization(n, m, XMAT, yVEC, OLSest);
             break;
 

@@ -1,13 +1,14 @@
 set(Executable_Name estOLS)
 
 set(Sources
-    setup_compute.cpp
-    process_cmd_args.cpp
-    command.cpp
+    main.cpp
+    estimate_OLS.cpp
     read_input_files.cpp
     write_output.cpp
-    estimate_OLS.cpp
-    main.cpp
+    setup_compute.cpp
+    command.cpp
+    process_cmd_args.cpp
+    benchmark.cpp
 )
 
 include_directories(${${Project_Name}_SOURCE_DIR}/inc)

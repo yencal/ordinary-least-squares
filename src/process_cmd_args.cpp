@@ -12,7 +12,7 @@ void print_help()
         "  --yVecSkip    -k    1    number of header lines to skip in yVec file (default 0)\n"
         "  --method      -m    1    select which method to use 0, 1 (default 0, see below for more info)\n"
         "  --writeFile   -w    0    output result to file (default writes result to screen)\n"
-        "  --benchmark   -b    0    only run benchmarks using XMAT dim. in benchmark.csv, writes result to file\n"
+        "  --benchmark   -b    1    run benchmark for Xmat dimensions in file\n"
         "  --help        -h    0    print this message\n"
         "  More info:"
         "    method 0: compute OLS estimates using direct evaluation of the normal equation\n"
@@ -30,7 +30,7 @@ Command process_cmd_args(int argc, char** argv)
     // struct that holds all cmd args
     Command cmd;
 
-    const char* const short_opts = "x:y:s:k:m:wbh";
+    const char* const short_opts = "x:y:s:k:m:wb:h";
     const option long_opts[] = {
             {"Xmat", required_argument, nullptr, 'x'},
             {"yVec", required_argument, nullptr, 'y'},
@@ -38,7 +38,7 @@ Command process_cmd_args(int argc, char** argv)
             {"yVecSkip", required_argument, nullptr, 'i'},
             {"method", required_argument, nullptr, 'm'},
             {"writeFile", no_argument, nullptr, 'w'},
-            {"benchmark", no_argument, nullptr, 'b'},
+            {"benchmark", required_argument, nullptr, 'b'},
             {"help", no_argument, nullptr, 'h'},
             {nullptr, no_argument, nullptr, 0}
     };   
@@ -64,7 +64,7 @@ Command process_cmd_args(int argc, char** argv)
             cmd.numHeaderLines_XMAT_file = std::stoi(optarg);
             break;
 
-        case 'i':
+        case 'k':
             cmd.numHeaderLines_yVEC_file = std::stoi(optarg);
             break;
 
@@ -77,7 +77,7 @@ Command process_cmd_args(int argc, char** argv)
             break;
 
         case 'b':
-            cmd.benchmark = true;
+            cmd.benchmarkFile = std::string(optarg);
             break;
 
         case 'h': // -h or --help
