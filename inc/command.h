@@ -10,7 +10,7 @@ struct Command
     std::string yVEC_file;
     int numHeaderLines_XMAT_file = 0;
     int numHeaderLines_yVEC_file = 0;
-    int method = 0;
+    int method = 1;
     bool writeFile = false;
     std::string benchmarkFile;
 

@@ -10,7 +10,7 @@ void print_help()
         "  --yVec        -y    1    y Vector csv file (full path)\n"
         "  --XmatSkip    -s    1    number of header lines to skip in Xmat file (default 0)\n"
         "  --yVecSkip    -k    1    number of header lines to skip in yVec file (default 0)\n"
-        "  --method      -m    1    select which method to use 0, 1 (default 0, see below for more info)\n"
+        "  --method      -m    1    select which method to use 0, 1 (default 1, see below for more info)\n"
         "  --writeFile   -w    0    output result to file (default writes result to screen)\n"
         "  --benchmark   -b    1    run benchmark for Xmat dimensions in file\n"
         "  --help        -h    0    print this message\n"
