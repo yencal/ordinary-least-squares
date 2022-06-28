@@ -62,7 +62,7 @@ estOLS -x $path_to_file/XMAT.csv -y $path_to_file/yVEC.csv -s 1 -k 1 -w
 ## Benchmark
 The two methods for calculating the OLS estimates were benchmarked for X matrix of fixed n dimension (40000) and the m dimension in values [500,1000,2000,4000,10000]. The benchmark was ran three times and the results was averaged and ploted in the figure below. From the figure, it can be observed that the AxLU method outperforms the NE method. For a X matrix dimension of 40000x10000, the AxLU method is 3.4 times faster than the NE method. The difference in performance can be attributed to the reduced number of operations in the AxLU method compared to the NE method. The bechmark was run on a laptop powered the intel core i5 8th Gen processor.
 
-![benchmark result plot](benchmark/benchmark_plot.pdf?raw=true "Benchmark results")
+![benchmark result plot](benchmark/benchmark_plot.png?raw=true "Benchmark results")
 
 The benchmark option for the program accepts a csv file that lists all the n and m dimensions of the X matrix that should be benchmarked. An example of the benchmark file is shown in `benchmark/benchmark.csv`. The file can be modified to run different X matrix dimensions. The command to run the benchmark study is shown below:
 ```
