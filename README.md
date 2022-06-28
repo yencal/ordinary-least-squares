@@ -26,7 +26,7 @@ $ mkdir build
 $ cmake -S . -B build
 $ cmake --build build
 ```
-This builds the executable `estOLS` in `/build/ordinary-least-squares`
+This builds the executable `estOLS` in `/build/ordinary-least-squares`.
 
 The program accepts command line arguments which can be probed using the following command:
 ```
@@ -60,7 +60,7 @@ $ estOLS -x $path_to_file/XMAT.csv -y $path_to_file/yVEC.csv -s 1 -k 1 -w
 ```
 
 ## Benchmark
-The two methods for calculating the OLS estimates were benchmarked for <img src="https://render.githubusercontent.com/render/math?math=X"> matrix $(n \times m)$ dimension with the $n$ dimension set to $40000$ and the $m$ dimension are [500,1000,2000,4000,10000]. The benchmark was ran three times and the results was averaged and ploted in the figure below. From the figure, it can be observed that the AxLU method outperforms the NE method. For an $X$ matrix dimension of $40000 \times 10000$, the AxLU method is $3.4$ times faster than the NE method. The difference in performance can be attributed to the reduced number of operations in the AxLU method compared to the NE method. The bechmark was performed on a laptop powered by Intel core i5 8th Gen processor.
+The two methods for calculating the OLS estimates were benchmarked for <img src="https://render.githubusercontent.com/render/math?math=X"> matrix $(n \times m)$ dimension with the $n$ dimension set to $40000$ and the $m$ dimension set to [500,1000,2000,4000,10000]. The benchmark was ran three times and the results were averaged and plotred in the figure below. From the figure, it can be observed that the AxLU method outperforms the NE method. For an $X$ matrix dimension of $40000 \times 10000$, the AxLU method is $3.4$ times faster than the NE method. The difference in performance can be attributed to the reduced number of operations in the AxLU method compared to the NE method. The benchmark was performed on a laptop powered by Intel core i5 8th Gen processor.
 
 ![benchmark result plot](benchmark/benchmark_plot.png?raw=true "Benchmark results")
 
