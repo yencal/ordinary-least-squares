@@ -1,7 +1,7 @@
 # ordinary-least-squares
 
 ## Description
-This program calculates ordinary least squares(OLS) estimates using the the following relation:
+This application calculates ordinary least squares(OLS) estimates using the the following relation:
 $$ \beta = (X^{T}X)^{-1}X^{T}y $$
 
 ## Project design
