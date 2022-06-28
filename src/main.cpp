@@ -1,10 +1,9 @@
-#include <stdio.h>
+#include <benchmark.h>
 #include <process_cmd_args.h>
 #include <setup_compute.h>
-#include <benchmark.h>
+#include <stdio.h>
 
-
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     // read command line arguments
     Command cmd = process_cmd_args(argc, argv);
@@ -21,6 +20,6 @@ int main(int argc, char **argv)
     {
         setup_compute(cmd);
     }
-    
+
     return 0;
 }

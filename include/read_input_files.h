@@ -1,21 +1,21 @@
 #pragma once
 
-#include <stdio.h>
 #include <iostream>
+#include <stdio.h>
 
 #include <fstream>
-#include <sstream>
 #include <limits>
+#include <sstream>
 
 #include "utilities.h"
 
-void read_csv_file_data_dim(int *numRows, int *numCols, std::string fileName, int numHeaderLines);
+void read_csv_file_data_dim(int* numRows, int* numCols, std::string fileName, int numHeaderLines);
 
-template <typename T>
-int read_csv_file(std::string fileName, int numHeaderLines, T *ptr);
+template<typename T>
+int read_csv_file(std::string fileName, int numHeaderLines, T* ptr);
 
-template <typename T>
-int read_csv_file(std::string fileName, int numHeaderLines, T *ptr)
+template<typename T>
+int read_csv_file(std::string fileName, int numHeaderLines, T* ptr)
 {
     // create an input filestream and open XMAT_file
     std::ifstream myFile(fileName);
@@ -26,7 +26,8 @@ int read_csv_file(std::string fileName, int numHeaderLines, T *ptr)
     // make sure file is open
     if (!myFile.is_open())
     {
-        std::string errorMessage = std::string("Could not open ") + fileName + std::string(". Please specify file full path.");
+        std::string errorMessage =
+            std::string("Could not open ") + fileName + std::string(". Please specify file full path.");
         throw std::runtime_error(errorMessage);
     }
 
@@ -45,15 +46,15 @@ int read_csv_file(std::string fileName, int numHeaderLines, T *ptr)
     {
         // create a stringstream of the current line
         std::stringstream ss(line);
-        
+
         // read columns in line
-        while(ss >> value)
+        while (ss >> value)
         {
             ptr[i] = value;
             i++;
 
             // if the next token is a comma, ignore it and move on
-            if(ss.peek() == ',')
+            if (ss.peek() == ',')
             {
                 ss.ignore();
             }
@@ -63,5 +64,5 @@ int read_csv_file(std::string fileName, int numHeaderLines, T *ptr)
     // close file
     myFile.close();
 
-    return i; // Note i == number of elements read
+    return i;  // Note i == number of elements read
 }

@@ -1,27 +1,26 @@
 #pragma once
 
-#include <utilities.h>
-#include <command.h>
 #include <chrono>
+#include <command.h>
+#include <utilities.h>
 
 // benchmark main
 void benchmark(Command cmd);
 
 // fill array with random numbers (0,1]
-void fill_with_rand(real_t *ptr, int size);
-
+void fill_with_rand(real_t* ptr, int size);
 
 // Timer class
 class Timer
 {
-using clock_t = std::chrono::high_resolution_clock;
+    using clock_t = std::chrono::high_resolution_clock;
 
-private:
+  private:
     clock_t::time_point start_time_;
     clock_t::duration elapsed_time_;
     double elapsed_time_in_seconds_;
 
-public:
+  public:
     void reset();
     double stop();
     // use default constructor and destructor for now

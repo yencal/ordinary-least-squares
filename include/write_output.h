@@ -1,14 +1,13 @@
 #pragma once
 
-#include <utilities.h>
 #include <iostream>
+#include <utilities.h>
 
+template<typename T>
+void write_data_as_csv(std::ostream& output_stream, int numRows, int numCols, T* ptr);
 
-template <typename T>
-void write_data_as_csv(std::ostream &output_stream, int numRows, int numCols, T *ptr);
-
-template <typename T>
-void write_data_as_csv(std::ostream &output_stream, int numRows, int numCols, T *ptr)
+template<typename T>
+void write_data_as_csv(std::ostream& output_stream, int numRows, int numCols, T* ptr)
 {
 
     int count = 0;
@@ -18,17 +17,16 @@ void write_data_as_csv(std::ostream &output_stream, int numRows, int numCols, T 
         {
             output_stream << ptr[count];
 
-            // avoid comma at end of line 
-            if(j != numCols - 1)
+            // avoid comma at end of line
+            if (j != numCols - 1)
             {
                 output_stream << ",";
-            } 
+            }
 
             count++;
-        } // end for j
+        }  // end for j
 
         output_stream << "\n";
 
-    } // end for i
-
+    }  // end for i
 }

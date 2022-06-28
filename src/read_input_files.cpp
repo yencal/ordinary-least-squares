@@ -1,7 +1,7 @@
 #include "read_input_files.h"
 #include "utilities.h"
 
-void read_csv_file_data_dim(int *numRows, int *numCols, std::string fileName, int numHeaderLines)
+void read_csv_file_data_dim(int* numRows, int* numCols, std::string fileName, int numHeaderLines)
 {
     // initialize to zero
     (*numRows) = 0;
@@ -29,7 +29,7 @@ void read_csv_file_data_dim(int *numRows, int *numCols, std::string fileName, in
 
     // read first line to get number of columns
     std::getline(myFile, line);
-    ++(*numRows); // increament number of rows after line read
+    ++(*numRows);  // increament number of rows after line read
 
     // create a stringstream from line
     std::stringstream ss(line);
