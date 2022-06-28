@@ -6,31 +6,31 @@ $$ \beta = (X^{T}X)^{-1}X^{T}y $$
 
 ## Application design
 The design process of the application is as follows:
-* Method 1: computes the OLS estimates directly by using the Normal Equation $\beta = (X^{T}X)^{-1}X^{T}y$. This method is refered to as the NE method hereafter.
-* Method 2: computes the OLS estimates by first rearanging the Normal Equation as $(X^{T}X) \beta = X^{T}y$ and then solve the systems of linear equations <img src="https://render.githubusercontent.com/render/math?math=Ax = b"> using the LU factorization method. This method is refered to as the AxbLU method hereafter.
-* The application uses [CBLAS](http://www.netlib.org/blas/) and [LAPACKE](https://www.netlib.org/lapack/lapacke.html) libraries for the linear algebra operations. This enables easy linkage of the application with more optimized and parallel versions of these libraries such as Intel Math Kernal Library. 
+* Method 1: computes the OLS estimates directly by using the Normal Equation $\beta = (X^{T}X)^{-1}X^{T}y$. This method is referred to as the NE method hereafter.
+* Method 2: computes the OLS estimates by first rearranging the Normal Equation as $(X^{T}X) \beta = X^{T}y$ and then solve the systems of linear equations <img src="https://render.githubusercontent.com/render/math?math=Ax = b"> using the LU factorization method. This method is referred to as the AxbLU method hereafter.
+* The application uses [CBLAS](http://www.netlib.org/blas/) and [LAPACKE](https://www.netlib.org/lapack/lapacke.html) libraries for the linear algebra operations. This enables easy linkage of the application with more optimized and parallel versions of these libraries such as Intel Math Kernel Library. 
 * The application uses the CMake build system.
 
 ## Dependencies
 The application uses [CBLAS](http://www.netlib.org/blas/) and [LAPACKE](https://www.netlib.org/lapack/lapacke.html) linear algebra libraries. The libraries can be installed using the following command:
 ```
-sudo apt install libopenblas-dev
-sudo apt-get install liblapacke-dev
+$ sudo apt install libopenblas-dev
+$ sudo apt-get install liblapacke-dev
 ```
 
 ## Basic build and usage
 After cloning the project use the following commands to build it.
 ```
-cd ordinary-least-squares
-mkdir build
-cmake -S . -B build
-cmake --build build
+$ cd ordinary-least-squares
+$ mkdir build
+$ cmake -S . -B build
+$ cmake --build build
 ```
 This builds the executable `estOLS` in `/build/ordinary-least-squares`
 
 The program accepts command line arguments which can be probed using the following command:
 ```
-estOLS --help
+$ estOLS --help
 ```
 The above command shows the following output:
 ```
@@ -51,12 +51,12 @@ The above command shows the following output:
 
 If $X$ matrix and $y$ vector are stored in a csv file named XMAT and yVEC with no header lines, the program can be run with the following minimal commands:
 ```
-estOLS -x $path_to_file/XMAT.csv -y $path_to_file/yVEC.csv
+$ estOLS -x $path_to_file/XMAT.csv -y $path_to_file/yVEC.csv
 ```
 
 Example of XMAT.csv and yVEC.csv are included in the test folder. To run the program with the files, you would need to specify the number of header lines in each file using the `-s` and `-k` options for the XMAT.csv and yVEC.csv files, respectively. To specify that the program writes the result to an output file (OLSest.csv) use the `-w` flag. Below is the full command:
 ```
-estOLS -x $path_to_file/XMAT.csv -y $path_to_file/yVEC.csv -s 1 -k 1 -w
+$ estOLS -x $path_to_file/XMAT.csv -y $path_to_file/yVEC.csv -s 1 -k 1 -w
 ```
 
 ## Benchmark
@@ -66,7 +66,7 @@ The two methods for calculating the OLS estimates were benchmarked for <img src=
 
 The benchmark option for the program accepts a csv file that lists all the $n$ and $m$ dimensions of the $X$ matrix that should be benchmarked. An example of the benchmark file is shown in `benchmark/benchmark.csv`. The file can be modified to run different $X$ matrix dimensions. The command to run the benchmark study is shown below:
 ```
-estOLS -b $path_to_file/benchmark.csv
+$ estOLS -b $path_to_file/benchmark.csv
 ```
 
 ## Future work
