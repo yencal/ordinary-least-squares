@@ -12,7 +12,7 @@ The design process of the project is as follows:
 * The project uses the CMake build system.
 
 ## Dependencies
-The project uses [CBLAS](http://www.netlib.org/blas/) and [LAPACKE](https://www.netlib.org/lapack/lapacke.html) linear algebra libraries. The liberaries can be installed using the following command:
+The project uses [CBLAS](http://www.netlib.org/blas/) and [LAPACKE](https://www.netlib.org/lapack/lapacke.html) linear algebra libraries. The libraries can be installed using the following command:
 ```
 sudo apt install libopenblas-dev
 sudo apt-get install liblapacke-dev
