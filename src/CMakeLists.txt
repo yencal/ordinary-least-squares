@@ -11,7 +11,7 @@ set(Sources
     benchmark.cpp
 )
 
-include_directories(${${Project_Name}_SOURCE_DIR}/inc)
+include_directories(${${Project_Name}_SOURCE_DIR}/include)
 add_executable(${Executable_Name} ${Sources})
 
 set(BLA_VENDOR Generic) # set BLAS/LAPACK Vendors
