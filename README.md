@@ -7,7 +7,7 @@ $$ \beta = (X^{T}X)^{-1}X^{T}y $$
 ## Project design
 The design process of the project is as follows:
 * Method 1: computes the OLS directly by using the Normal Equation $\beta = (X^{T}X)^{-1}X^{T}y$. This method is refered to as the NE method hereafter.
-* Method 2: computes the OLS by first rearanging the Normal Equation as $(X^{T}X) \beta = X^{T}y$ and then solve the system of linear equations $(Ax = b)$ using the LU factorization method. This method is refered to as the AxbLU method hereafter.
+* Method 2: computes the OLS by first rearanging the Normal Equation as $(X^{T}X) \beta = X^{T}y$ and then solve the system of linear equations $\left(Ax = b\right)$ using the LU factorization method. This method is refered to as the AxbLU method hereafter.
 * The project uses [CBLAS](http://www.netlib.org/blas/) and [LAPACKE](https://www.netlib.org/lapack/lapacke.html) libraries for the linear algebra operations. This enables easy linkage of the project with more optimized and parallel versions of these libraries such as Intel Math Kernal Library. 
 * The project uses the CMake build system.
 
@@ -49,7 +49,7 @@ The above command shows the following output:
     Note: options with arg=1 require values.
 ```
 
-If #X# matrix and $y$ vector are stored in a csv file named XMAT and yVEC with no header lines, the program can be run with the following minimal commands:
+If $X$ matrix and $y$ vector are stored in a csv file named XMAT and yVEC with no header lines, the program can be run with the following minimal commands:
 ```
 estOLS -x $path_to_file/XMAT.csv -y $path_to_file/yVEC.csv
 ```
