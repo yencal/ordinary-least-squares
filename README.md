@@ -26,7 +26,7 @@ $ mkdir build
 $ cmake -S . -B build
 $ cmake --build build
 ```
-This builds the executable `estOLS` in `/build/ordinary-least-squares`.
+This builds the executable `estOLS` in `/build/src` folder.
 
 The program accepts command line arguments which can be probed using the following command:
 ```
