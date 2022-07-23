@@ -13,7 +13,7 @@ void print_help()
                  "  --writeFile   -w    0    output result to file (default writes result to screen)\n"
                  "  --benchmark   -b    1    run benchmark for Xmat dimensions in file\n"
                  "  --help        -h    0    print this message\n"
-                 "  More info:"
+                 "  More info:\n"
                  "    method 0: compute OLS estimates using direct evaluation of the normal equation\n"
                  "    method 1: compute OLS estimates using using LU factorization to solve Ax=b\n"
                  "    Note: options with arg=1 require values.\n";
