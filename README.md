@@ -44,7 +44,8 @@ The above command shows the following output:
   --writeFile   -w    0    output result to file (default writes result to screen)
   --benchmark   -b    1    run benchmark for Xmat dimensions in file
   --help        -h    0    print this message
-  More info:    method 0: compute OLS estimates using direct evaluation of the normal equation
+  More info:    
+    method 0: compute OLS estimates using direct evaluation of the normal equation
     method 1: compute OLS estimates using using LU factorization to solve Ax=b
     Note: options with arg=1 require values.
 ```
