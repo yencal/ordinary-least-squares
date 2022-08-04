@@ -1,8 +1,8 @@
 # ordinary-least-squares
 
 ## Description
-This application calculates ordinary least squares(OLS) estimates using the the following relation:
-$ \beta = (X^{T}X)^{-1}X^{T}y $
+This application calculates ordinary least squares(OLS) estimates using the the following relation: 
+$$\beta = (X^{T}X)^{-1}X^{T}y$$
 
 ## Application design
 The design process of the application is as follows:
